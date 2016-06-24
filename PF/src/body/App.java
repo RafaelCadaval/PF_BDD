@@ -14,22 +14,26 @@ public class App {
 		Connection conn = Database.getConnection();
 
 		// Selects all movies
-//		*nome da classe da tabela*.selectAll(conn);
+//		Class.selectAll(conn);
 		
+		//ITEM
+//		Item.nTAS2OR4(conn);
+//		Item.itemNameOBDPS(conn);
+//		Item.mWDPS_GBType(conn);
+//		Item.nameAndDPSHT450(conn);
+//		Item.nameDPSHTm(conn);
+//		Item.aSIWithHDPS(conn);
+		
+		//CHARACTER
+//		Character.charsByClass(conn);
+//		Character.nameWithEndingKER(conn);
+//		Character.nameWithItem690(conn);
+//		Character.nameDM_GBC_OBN(conn);
+		
+		//ZONE
+//		Zone.zoneTypes(conn);
 		// Close the connection.
 		conn.close();
-		
-		// Selects one movie
-		// Movies.select(conn, 2);
-		
-		// Insert a new movie
-		// Movies.insert(conn, "Test", 1990, "Another Test");
-		
-		// Update an existing movie
-		// Movies.update(conn, 42, "Test", 1990, "Another Test 2");
-		
-		// Deletes a movie
-		// Movies.delete(conn, 41);
 	}
 
 }
