@@ -13,6 +13,31 @@ import java.util.Scanner;
 
 public class DBOps {
 
+	private class Database {
+		private static String mJdbcUrl = "jdbc:oracle:thin:@camburi.pucrs.br:1521:facin11g";
+		private static String mUser = "be180123";
+		private static String mPassword = "be180123";
+		private static OracleDataSource mDataSource = null;
+		
+		public static Connection getConnection() throws SQLException {
+			if (mDataSource == null) {
+				initialize();
+			}
+			return mDataSource.getConnection(mUser, mPassword);
+		}
+
+		public static void initialize() throws SQLException {
+			mDataSource = new OracleDataSource();
+			mDataSource.setURL(mJdbcUrl);
+		}
+		
+	}
+	
+	public static void start(Connection conn) throws SQLException {
+		loadDB(conn);
+		menu(conn);
+	}
+	
 	public static void menu(Connection conn){
 		Scanner in = new Scanner(System.in);
 		System.out.println("\fDigite os números indicados para navegar no menu\n1 - Lista de consultas");
@@ -59,70 +84,114 @@ public class DBOps {
 		while(op!=0){	
 			op = in.nextInt();
 			switch(op){
-			case 1: consulta1(conn);
+			case 1: 
+				System.out.println("\f");
+				consulta1(conn);
+				if(!next(in)) return;
+				break;
+			case 2: 
+				System.out.println("\f");
+				consulta2(conn);
 					if(!next(in)) return;
 				break;
-			case 2: consulta2(conn);
+			case 3: 
+				System.out.println("\f");
+				consulta3(conn);
 					if(!next(in)) return;
 				break;
-			case 3: consulta3(conn);
+			case 4: 
+				System.out.println("\f");
+				consulta4(conn);
 					if(!next(in)) return;
 				break;
-			case 4: consulta4(conn);
+			case 5: 
+				System.out.println("\f");
+				consulta5(conn);
 					if(!next(in)) return;
 				break;
-			case 5: consulta5(conn);
+			case 6: 
+				System.out.println("\f");
+				consulta6(conn);
 					if(!next(in)) return;
 				break;
-			case 6: consulta6(conn);
+			case 7: 
+				System.out.println("\f");
+				consulta7(conn);
 					if(!next(in)) return;
 				break;
-			case 7: consulta7(conn);
+			case 8: 
+				System.out.println("\f");
+				consulta8(conn);
 					if(!next(in)) return;
 				break;
-			case 8: consulta8(conn);
+			case 9: 
+				System.out.println("\f");
+				consulta9(conn);
 					if(!next(in)) return;
 				break;
-			case 9: consulta9(conn);
-					if(!next(in)) return;
-				break;
-			case 10: consulta10(conn);
+			case 10: 
+				System.out.println("\f");
+				consulta10(conn);
 					 if(!next(in)) return;
 				break;
-			case 11: consulta11(conn);
+			case 11: 
+				System.out.println("\f");
+				consulta11(conn);
 					 if(!next(in)) return;
 				break;
-			case 12: consulta12(conn);
+			case 12: 
+				System.out.println("\f");
+				consulta12(conn);
 					 if(!next(in)) return;
 				break;
-			case 13: consulta13(conn);
+			case 13: 
+				System.out.println("\f");
+				consulta13(conn);
 					 if(!next(in)) return;
 				break;
-			case 14: consulta14(conn);
+			case 14: 
+				System.out.println("\f");
+				consulta14(conn);
 					 if(!next(in)) return;
 				break;
-			case 15: consulta15(conn);
+			case 15: 
+				System.out.println("\f");
+				consulta15(conn);
 					 if(!next(in)) return;
 				break;
-			case 16: consulta16(conn);
+			case 16: 
+				System.out.println("\f");
+				consulta16(conn);
 					 if(!next(in)) return;
 				break;
-			case 17: consulta17(conn);
+			case 17: 
+				System.out.println("\f");
+				consulta17(conn);
 					 if(!next(in)) return;
 				break;
-			case 18: consulta18(conn);
+			case 18: 
+				System.out.println("\f");
+				consulta18(conn);
 					 if(!next(in)) return;
 				break;
-			case 19: consulta19(conn);
+			case 19: 
+				System.out.println("\f");
+				consulta19(conn);
 					 if(!next(in)) return;
 				break;
-			case 20: consulta20(conn);
+			case 20: 
+				System.out.println("\f");
+				consulta20(conn);
 					 if(!next(in)) return;
 				break;
-			case 21: consulta21(conn);
+			case 21: 
+				System.out.println("\f");
+				consulta21(conn);
 					 if(!next(in)) return;
 				break;
-			case 22: consulta22(conn);
+			case 22: 
+				System.out.println("\f");
+				consulta22(conn);
 					 if(!next(in)) return;
 				break;
 			case 0: return;
@@ -137,8 +206,8 @@ public class DBOps {
 		return true;
 	}
 	
-	public static void loadDB(Connection conn) throws IOException, SQLException {
-		Path path = Paths.get("script.sql");
+	private static void loadDB(Connection conn) throws IOException, SQLException {
+		Path path = Paths.get("tabelas.sql");
 		
 		try(Scanner in = new Scanner(Files.newBufferedReader(path, Charset.forName("utf8")))){
 			String s = null;
@@ -154,7 +223,6 @@ public class DBOps {
 			System.err.format("Erro de E/S: %s%n", e);
 		}
 	}
-	
 	
 	public static boolean command(Connection conn, String s) throws SQLException{
 		Statement sttmt = conn.createStatement();
