@@ -10,29 +10,37 @@ public class App {
 
 	public static void main(String[] args) throws SQLException {
 		
-		// Gets a database connection.
-		Connection conn = Database.getConnection();
+		Connection conn = runDatabase.getConnection();
 
-		// Selects all movies
-//		Class.selectAll(conn);
-		
 		//ITEM
-//		Item.nTAS2OR4(conn);
-//		Item.itemNameOBDPS(conn);
-//		Item.mWDPS_GBType(conn);
-//		Item.nameAndDPSHT450(conn);
-//		Item.nameDPSHTm(conn);
-//		Item.aSIWithHDPS(conn);
+//		Item.consulta1(conn);
+//		Item.consuta2(conn);
+//		Item.consulta3(conn);
+//		Item.consulta4(conn);
+//		Item.consulta5(conn);
+//		Item.consulta6(conn);
+//		Item.consulta20(conn);
+//		Item.consulta21(conn);
+//		Item.consulta22(conn);
+		Item.consulta23(conn);
 		
 		//CHARACTER
-//		Character.charsByClass(conn);
-//		Character.nameWithEndingKER(conn);
-//		Character.nameWithItem690(conn);
-//		Character.nameDM_GBC_OBN(conn);
+//		Character.consulta7(conn);
+//		Character.consulta8(conn);
+//		Character.consulta9(conn);
+//		Character.consulta10(conn);
+//		Character.consulta11(conn);
+//		Character.consulta13(conn);
+//		Character.consulta14(conn);
+//		Character.consulta15(conn);
+//		Character.consulta16(conn);
+//		Character.consulta17(conn);
+//		Character.consulta18(conn);
+//		Character.consulta19(conn);
 		
 		//ZONE
-//		Zone.zoneTypes(conn);
-		// Close the connection.
+//		Zone.consulta12(conn);
+		
 		conn.close();
 	}
 

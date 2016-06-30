@@ -31,5 +31,5 @@ public class Profession {
 		rs.close();
 	}
 	
-	//próximos métodos
+	
 }

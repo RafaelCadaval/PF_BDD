@@ -35,7 +35,7 @@ public class Zone {
 	
 	//tipos de zonas de jogo
 	//select distinct(type) from zone;
-	public static void zoneTypes(Connection connection) throws SQLException {
+	public static void consulta12(Connection connection) throws SQLException {
 		String sql = "SELECT distinct(type) " + 
 				 	 "FROM zone ";
 	
